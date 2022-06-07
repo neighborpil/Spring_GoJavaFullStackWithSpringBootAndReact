@@ -73,12 +73,12 @@ class CounterButton extends Component {
     constructor() {
         super();
 
-        this.state = {
-            counter : 0
-        }
+        // this.state = {
+        //     counter : 0
+        // }
 
-        this.increment = this.increment.bind(this);
-        this.decrement = this.decrement.bind(this);
+        // this.increment = this.increment.bind(this);
+        // this.decrement = this.decrement.bind(this);
     }
 
     // render = () => { // 람다식으로 바꿔주면 메소드의 바인딩이 필요 없다
@@ -86,28 +86,28 @@ class CounterButton extends Component {
         // const style = {fontSize: "50px", padding: "15px 30px"};
         return (
             <div className="counterBut ton">
-                <button onClick={this.increment}>+{this.props.by}</button>
-                <button onClick={this.decrement}>-{this.props.by}</button>
+                <button onClick={() => this.props.incrementMethod(this.props.by)}>+{this.props.by}</button>
+                <button onClick={() => this.props.decrementMethod(this.props.by)}>-{this.props.by}</button>
             </div>
         );
 
     }
 
-    increment() {
-        this.setState({
-            counter: this.state.counter += this.props.by
-        })
+    // increment() {
+    //     this.setState({
+    //         counter: this.state.counter += this.props.by
+    //     })
 
-        this.props.incrementMethod(this.props.by); 
-    }
+    //     this.props.incrementMethod(this.props.by); 
+    // }
 
-    decrement() {
-        this.setState({
-            counter: this.state.counter -= this.props.by
-        })
+    // decrement() {
+    //     this.setState({
+    //         counter: this.state.counter -= this.props.by
+    //     })
 
-        this.props.decrementMethod(this.props.by); 
-    }
+    //     this.props.decrementMethod(this.props.by); 
+    // }
 }
 
 CounterButton.defaultProps = {
