@@ -60,3 +60,73 @@ class App extends Component {
 
 ```
 
+### Babel
+ - javascript compiler
+ - compile the latest javascript code to older version of it
+ - always should be closed correctly. not "<br>", "<br/>" is ok
+ - should return one item
+ - custom component should start with captial letter
+
+### Components importing
+ - set export default or export before class or function name
+ - FirstComponet.jsx
+```
+import React, { Component } from "react";
+
+// class component
+class FirstComponent extends Component {
+  render() {
+    return (
+      <div className="firstComponent">
+        FirstComponent
+      </div>
+    );
+  }
+}
+
+export default FirstComponent;
+
+```
+ - ThirdComponent.jsx
+
+```
+import React   from "react";
+function ThirdComponent() {
+  return (
+    <div className="thirdComponent">
+      ThirdComponent
+    </div>
+  );
+}
+
+export default ThirdComponent;
+```
+ - App.js
+
+```
+import React, { Component } from 'react';
+import FirstComponent from './components/learning-examples/FirstComponent'; // default로 지정된 것은 중괄호가 필요하지 않다, 나머지는 필요 
+import SecondComponent from './components/learning-examples/SecondComponent';
+import ThirdComponent from './components/learning-examples/ThirdComponent';
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        My Hello World!
+        <FirstComponent></FirstComponent>
+        <SecondComponent></SecondComponent>
+        <ThirdComponent></ThirdComponent>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+```
+
+
+
