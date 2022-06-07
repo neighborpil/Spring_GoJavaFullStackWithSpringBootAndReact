@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom'
 import withNavigation from "./WithNavigation";
 import withParams from "./WithParams";
 
@@ -10,6 +10,7 @@ class TodoApp extends Component {
         return (
             <div className="TodoApp">
                 <Router>
+                    <HeaderComponent />
                     <Routes>
                         <Route path="/" element={<LoginComponentWithNavigation />} />
                         <Route path="/login" element={<LoginComponentWithNavigation />} />
@@ -17,6 +18,7 @@ class TodoApp extends Component {
                         <Route path="/todos" element={<ListTodoComponent/>} />
                         <Route path="*" element={<ErrorComponent />} />
                     </Routes>
+                    <FooterComponent />
                 </Router>
 
                 {/* <LoginComponent />   
@@ -26,15 +28,48 @@ class TodoApp extends Component {
     }
 }
 
+class HeaderComponent extends Component {
+    render() {
+        return (
+            <header>
+                <nav className="navbar">
+                    <div><a>neighborpil</a></div>
+                    <ul className="navbar-nav">
+                        <li className="nav-link">Home</li>
+                        <li className="nav-link">Todos</li>
+                    </ul>
+                    <ul className="navbar-nav">
+                        <li className="nav-link">Login</li>
+                        <li className="nav-link">Logout</li>
+                    </ul>
+
+
+                </nav>
+            </header>
+        )
+    }
+}
+
+class FooterComponent extends Component {
+    render() {
+        return (
+            <div className="">
+                <hr />
+            </div>
+        )
+    }
+}
+
+
 class ListTodoComponent extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             todos : [
-                {id: 1, description: 'Learn React'},
-                {id: 2, description: 'Become a expert'},
-                {id: 2, description: 'Buy present'},
+                {id: 1, description: 'Learn React', done:false, targetDate: new Date()},
+                {id: 2, description: 'Become a expert', done:false, targetDate: new Date()},
+                {id: 2, description: 'Buy present', done:false, targetDate: new Date()},
             ]
         }
     }
@@ -48,6 +83,8 @@ class ListTodoComponent extends Component {
                         <tr>
                             <th>id</th>
                             <th>description</th>
+                            <th>Is Completeted</th>
+                            <th>Target Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +94,8 @@ class ListTodoComponent extends Component {
                                     <tr>
                                         <td>{todo.id}</td>
                                         <td>{todo.description}</td>
+                                        <td>{todo.done.toString()}</td>
+                                        <td>{todo.targetDate.toString()}</td>
                                     </tr>
                             )
                         }
@@ -69,7 +108,11 @@ class ListTodoComponent extends Component {
 
 class WelcomeComponent extends Component {
     render() {
-        return <div>Welcome {this.props.params.name}</div>
+        return (
+            <div>
+                Welcome {this.props.params.name}. You can manage your todos <Link to="/todos">here</Link>.
+            </div>
+        )
     }
 }
 
