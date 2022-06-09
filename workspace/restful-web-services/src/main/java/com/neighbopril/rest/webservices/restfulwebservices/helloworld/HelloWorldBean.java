@@ -1,4 +1,4 @@
-package com.neighbopril.rest.webservices.restfulwebservices;
+package com.neighbopril.rest.webservices.restfulwebservices.helloworld;
 
 import lombok.Getter;
 import lombok.Setter;
