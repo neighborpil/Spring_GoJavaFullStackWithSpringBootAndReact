@@ -45,8 +45,8 @@ class LoginComponent extends Component {
     loginClicked() {
         // console.log(this.state )
 
-        // neighborpil, dummy
-        if(this.state.username === 'neighborpil' && this.state.password === 'dummy') {
+        // neighborpil, 1234
+        if(this.state.username === 'neighborpil' && this.state.password === '1234') {
             AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);
             this.props.navigate(`/welcome/${this.state.username}`)
             // this.setState({showSuccessMessage: true})
