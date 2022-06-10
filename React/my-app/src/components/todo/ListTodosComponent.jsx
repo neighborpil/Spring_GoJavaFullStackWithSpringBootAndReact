@@ -5,18 +5,22 @@ import AuthenticationService from "./AuthenticationService";
 class ListTodoComponent extends Component {
 
     constructor(props) {
+        console.log('constructor')
         super(props)
         this.state = {
-            todos : [
-                // {id: 1, description: 'Learn React', done:false, targetDate: new Date()},
-                // {id: 2, description: 'Become a expert', done:false, targetDate: new Date()},
-                // {id: 3, description: 'Buy present', done:false, targetDate: new Date()},
-            ]
+            todos : [],
+            message: null
         }
     }
 
     componentDidMount() {
+        console.log('componentDidMount')
+        this.refreshTodos();
+        console.log(this.state)
 
+    }
+
+    refreshTodos = () => {
         let username = AuthenticationService.getLoggedInUserName();
         TodoDataService.retrieveAllTodos(username)
             .then(
@@ -30,17 +34,48 @@ class ListTodoComponent extends Component {
 
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log(`shouldComponentUpdaten${nextProps}`)
+        console.log('shouldComponentUpdate:' + nextState)
+        return true; // false로 할 경우, state가 업데이트 되더라도 화면을 업데이트 하지 말라는 것
+    }
+
+    componentWillUnmount() {
+        console.log('compoenntWillUnmount')
+    }
+
+    updateTodoClicked = (id) => {
+        console.log(`update ${id}`)
+        
+        this.props.navigate(`/todos/${id}`)
+    }
+ 
+    deleteTodoClicked = (id) => {
+        let username = AuthenticationService.getLoggedInUserName();
+        console.log(`${id}, ${username}`)
+        TodoDataService.deleteTodo(username, id)
+            .then(
+                response => {
+                    this.setState({message: `Delete of todo ${id} Success`})
+                    this.refreshTodos();
+                }
+            )
+    }
+   
     render() {
+        console.log('render')
         return (
             <div>
                 <h1>List Todos</h1>
+                {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
-`                    <table className="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th>description</th>
                                 <th>Is Completeted</th>
                                 <th>Target Date</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,11 +86,13 @@ class ListTodoComponent extends Component {
                                             <td>{todo.description}</td>
                                             <td>{todo.done.toString()}</td>
                                             <td>{todo.targetDate.toString()}</td>
+                                            <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
+                                            <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
                                         </tr>
                                 )
                             }
                         </tbody>
-                    </table>`
+                    </table>
                 </div>
 
             </div>

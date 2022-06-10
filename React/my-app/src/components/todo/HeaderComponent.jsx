@@ -19,8 +19,6 @@ class HeaderComponent extends Component {
                         {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                     </ul>
-
-
                 </nav>
             </header>
         )

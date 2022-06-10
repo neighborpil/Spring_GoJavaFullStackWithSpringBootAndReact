@@ -2,6 +2,7 @@ package com.neighbopril.rest.webservices.restfulwebservices.todo;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Todo {
 
   private long id;
