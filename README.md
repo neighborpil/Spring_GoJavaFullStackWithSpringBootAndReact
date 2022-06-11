@@ -173,3 +173,11 @@ export default Counter;
 
 
 #### need to install "React Developer Tools" on Chrome browser
+
+### Dependency
+```
+$ npm add formik
+$ npm add moment
+```
+
+
