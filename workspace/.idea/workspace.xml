@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fc37a52-b2cd-43d4-9604-e4373c6a7298" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../React/my-app/src/components/todo/TodoComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../React/my-app/src/components/todo/TodoComponent.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="7fc37a52-b2cd-43d4-9604-e4373c6a7298" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +44,7 @@
       <workItem from="1654828451407" duration="358000" />
       <workItem from="1654828819149" duration="190000" />
       <workItem from="1655091824085" duration="670000" />
+      <workItem from="1655164401060" duration="347000" />
     </task>
     <servers />
   </component>
