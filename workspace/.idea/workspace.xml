@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fc37a52-b2cd-43d4-9604-e4373c6a7298" name="Changes" comment="" />
+    <list default="true" id="7fc37a52-b2cd-43d4-9604-e4373c6a7298" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/restful-web-services/src/main/java/com/neighbopril/rest/webservices/restfulwebservices/jwt/JwtInMemoryUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restful-web-services/src/main/java/com/neighbopril/rest/webservices/restfulwebservices/jwt/JwtTokenAuthorizationOncePerRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restful-web-services/src/main/java/com/neighbopril/rest/webservices/restfulwebservices/jwt/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restful-web-services/src/main/java/com/neighbopril/rest/webservices/restfulwebservices/jwt/JwtUnAuthorizedResponseAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restful-web-services/src/main/java/com/neighbopril/rest/webservices/restfulwebservices/jwt/JwtUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restful-web-services/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/restful-web-services/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restful-web-services/src/main/java/com/neighbopril/rest/webservices/restfulwebservices/basic/auth/SpringSecurityConfigurationBasicAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/restful-web-services/src/main/java/com/neighbopril/rest/basic/auth/SpringSecurityConfigurationBasicAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restful-web-services/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/restful-web-services/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +55,8 @@
       <workItem from="1654828819149" duration="190000" />
       <workItem from="1655091824085" duration="670000" />
       <workItem from="1655164401060" duration="347000" />
+      <workItem from="1655250972726" duration="66000" />
+      <workItem from="1655259084221" duration="2000" />
     </task>
     <servers />
   </component>
