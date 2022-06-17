@@ -34,17 +34,19 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${jwt.get.token.uri}")
     private String authenticationPath;
+
     @Bean
     public PasswordEncoder passwordEncoderBean() {
         return new BCryptPasswordEncoder();
     }
 
-//    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(jwtInMemoryUserDetailsService)
-            .passwordEncoder(passwordEncoderBean());
-    }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        super.configure(auth);
+        auth.userDetailsService(jwtInMemoryUserDetailsService)
+                .passwordEncoder(passwordEncoderBean());
+    }
 
     @Bean
     @Override
@@ -52,7 +54,11 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(jwtInMemoryUserDetailsService)
+//                .passwordEncoder(passwordEncoderBean());
+//    }
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -67,8 +73,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated();
 
         httpSecurity
-            .addFilterBefore(jwtAuthenticationTokenFilter,
-                UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         httpSecurity
             .headers()

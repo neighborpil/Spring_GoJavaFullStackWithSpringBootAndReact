@@ -10,7 +10,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@EqualsAndHashCode
 public class JwtUserDetails implements UserDetails, Serializable {
 
     private static final long serialVersionUID = 2514753694574422437L;

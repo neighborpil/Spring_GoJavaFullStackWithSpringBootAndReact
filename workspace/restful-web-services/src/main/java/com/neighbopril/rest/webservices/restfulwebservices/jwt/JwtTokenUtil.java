@@ -22,7 +22,7 @@ public class JwtTokenUtil implements Serializable {
     private static final long serialVersionUID = -8863911620412038909L;
 
     static final String CLAIM_KEY_USERNAME = "sub";
-    static final String CLAME_KEY_CREATED = "iat";
+    static final String CLAIM_KEY_CREATED = "iat";
     private Clock clock = DefaultClock.INSTANCE;
 
     @Value("${jwt.signing.key.secret}")
@@ -35,7 +35,7 @@ public class JwtTokenUtil implements Serializable {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
-    public Date getIssuedAtDateFRomToken(String token) {
+    public Date getIssuedAtDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getIssuedAt);
     }
 
@@ -87,8 +87,7 @@ public class JwtTokenUtil implements Serializable {
         claims.setIssuedAt(createdDate);
         claims.setExpiration(expirationDate);
 
-        return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, secret)
-            .compact();
+        return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, secret).compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
@@ -99,6 +98,5 @@ public class JwtTokenUtil implements Serializable {
 
     private Date calculateExpirationDate(Date createdDate) {
         return new Date(createdDate.getTime() + expiration * 1000);
-
     }
 }

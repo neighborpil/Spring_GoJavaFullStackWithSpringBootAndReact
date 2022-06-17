@@ -8,15 +8,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Entity
 public class Todo {
 
-  private long id;
+  @Id
+  @GeneratedValue
+  private Long id;
+
   private String username;
   private String description;
   private Date targetDate;

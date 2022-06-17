@@ -19,7 +19,7 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
                 1L,
                 "neighborpil",
                 "$2a$10$3zHzb.Npv1hfZbLEU5qsdOju/tk2je6W6PnNnY.c1ujWPcZh4PL6e",
-                "ROLE_USER_@"));
+                "ROLE_USER_2"));
     }
 
     @Override

@@ -24,7 +24,7 @@ import com.neighbopril.rest.webservices.restfulwebservices.jwt.JwtTokenUtil;
 import com.neighbopril.rest.webservices.restfulwebservices.jwt.JwtUserDetails;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin
 public class JwtAuthenticationRestController {
 
     @Value("${jwt.http.request.header}")
@@ -49,7 +49,7 @@ public class JwtAuthenticationRestController {
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        return ResponseEntity.of(Optional.of(new JwtTokenResponse(token)));
+        return ResponseEntity.ok(new JwtTokenResponse(token));
     }
 
     @RequestMapping(value = "${jwt.refresh.token.uri}", method = RequestMethod.GET)
@@ -62,7 +62,7 @@ public class JwtAuthenticationRestController {
 
         if (jwtTokenUtil.canTokenBeRefreshed(token)) {
             String refreshedToken = jwtTokenUtil.refreshToken(token);
-            return ResponseEntity.of(Optional.of(new JwtTokenResponse(refreshedToken)));
+            return ResponseEntity.ok(new JwtTokenResponse(refreshedToken));
         } else {
             return ResponseEntity.badRequest().body(null);
         }
