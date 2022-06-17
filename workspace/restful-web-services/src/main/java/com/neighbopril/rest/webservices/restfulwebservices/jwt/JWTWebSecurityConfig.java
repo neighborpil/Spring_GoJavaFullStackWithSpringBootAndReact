@@ -32,18 +32,19 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtTokenAuthorizationOncePerRequestFilter jwtAuthenticationTokenFilter;
 
-    @Value("${jwt.get.token.uri")
+    @Value("${jwt.get.token.uri}")
     private String authenticationPath;
+    @Bean
+    public PasswordEncoder passwordEncoderBean() {
+        return new BCryptPasswordEncoder();
+    }
 
-    @Autowired
+//    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(jwtInMemoryUserDetailsService)
             .passwordEncoder(passwordEncoderBean());
     }
 
-    private PasswordEncoder passwordEncoderBean() {
-        return new BCryptPasswordEncoder();
-    }
 
     @Bean
     @Override

@@ -8,20 +8,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 
-@Configuration
-@EnableWebSecurity
-public class SpringSecurityConfigurationBasicAuth extends WebSecurityConfigurerAdapter {
+//@Configuration
+//@EnableWebSecurity
+public class SpringSecurityConfigurationBasicAuth /* extends websecurityconfigureradapter */ {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-            .csrf().disable()
-            .authorizeRequests()
-            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-            .anyRequest()
-            .authenticated()
-            .and()
-            .httpBasic();
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//            .csrf().disable()
+//            .authorizeRequests()
+//            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//            .anyRequest()
+//            .authenticated()
+//            .and()
+//            .httpBasic();
+//
 //        http.formLogin();
-    }
+//    }
 }
