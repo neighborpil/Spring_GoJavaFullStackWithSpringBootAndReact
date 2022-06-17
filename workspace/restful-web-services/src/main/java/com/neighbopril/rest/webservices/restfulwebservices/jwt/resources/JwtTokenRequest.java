@@ -1,4 +1,4 @@
-package com.neighbopril.rest.webservices.restfulwebservices.jwt;
+package com.neighbopril.rest.webservices.restfulwebservices.jwt.resources;
 
 import java.io.Serializable;
 import lombok.Getter;
@@ -8,13 +8,10 @@ public class JwtTokenRequest implements Serializable {
 
     private static final long serialVersionUID = -8730500684405829557L;
 
-    @Getter
-    @Setter
-    private String username;
 
-    @Getter
-    @Setter
-    private String password;
+    @Getter @Setter private String username;
+
+    @Getter @Setter private String password;
 
     public JwtTokenRequest() {
         super();
